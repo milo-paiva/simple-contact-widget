@@ -1,6 +1,6 @@
 === Simple Contact Widget ===
 Contributors: milopaiva
-Tags: gutenberg, disable, disable gutenberg, editor, classic widgets
+Tags: widgets
 Requires at least: 4.9
 Tested up to: 5.9
 Stable tag: 1.0
