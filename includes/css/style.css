@@ -32,7 +32,15 @@
     align-items: center;
 }
 
-.cl_address .fa{
+.scwidget-row{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.scwidget-row label{
+    margin-bottom: 5px;
     margin-top: 5px;
 }
 

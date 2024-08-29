@@ -6,13 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: "
 "Simple Contact Widget "
-"Pot v1.0.0\n"
+"v1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "Translator Name "
 "<translations@example."
 "com>\n"
 "POT-Creation-Date: "
-"2024-08-28 20:05-0300\n"
+"2024-08-29 10:58-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -63,6 +63,30 @@ msgstr ""
 
 #: simple-contact-widget.php:144
 msgid "Contact Information"
+msgstr ""
+
+#: simple-contact-widget.php:145
+msgid "Address"
+msgstr ""
+
+#: simple-contact-widget.php:146
+msgid "Location URL"
+msgstr ""
+
+#: simple-contact-widget.php:147
+msgid "Phone"
+msgstr ""
+
+#: simple-contact-widget.php:148
+msgid "WhatsApp"
+msgstr ""
+
+#: simple-contact-widget.php:149
+msgid "Email"
+msgstr ""
+
+#: simple-contact-widget.php:150
+msgid "Opening Hours"
 msgstr ""
 
 #: simple-contact-widget.php:153

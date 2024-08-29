@@ -3,14 +3,14 @@
  * Simple Contact Widget
  *
  * @link              https://github.com/milo-paiva/simple-contact-widget
- * @since             1.0.0
+ * @since             1.0
  * @package           Simple Contact Widget
  *
  * @wordpress-plugin
  * Plugin Name:       Simple Contact Widget
  * Plugin URI:        https://github.com/milo-paiva/simple-contact-widget
  * Description:       Simple widget to display your contact information with links and icons
- * Version:           1.0.0
+ * Version:           1.1
  * Author:            Milo Paiva
  * Author URI:        https://bekiwee.com
  * License:           GPL-2.0+
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Simple_Contact_Widget' ) )
 					<div class="sciwdget-icon">
 						<i class="fa fa-map-o" aria-hidden="true"></i>
 					</div>
-					<div class="scwidget-address"><a href="'. esc_url($instance['addressLink']) .'" target="_blank">'. esc_html($instance['address']) .'</a></div>
+					<div class="scwidget-address"><a href="'. esc_url($instance['addressLink']) .'" target="_blank">'. esc_attr__($instance['address']) .'</a></div>
 				</div>';
 			}
 
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Simple_Contact_Widget' ) )
 					<div class="sciwdget-icon">
 						<i class="fa fa-phone-square" aria-hidden="true"></i>
 					</div>
-					<div class="scwidget-phone"><a href="tel:055'. esc_attr(preg_replace('/[^0-9]/', '', $instance['phone'])) .'">'. esc_html($instance['phone']) .'</a></div>
+					<div class="scwidget-phone"><a href="tel:055'. esc_attr(preg_replace('/[^0-9]/', '', $instance['phone'])) .'">'.  esc_attr__($instance['phone']) .'</a></div>
 				</div>';
 			}
 
@@ -102,13 +102,13 @@ if ( ! class_exists( 'Simple_Contact_Widget' ) )
 					<div class="sciwdget-icon">
 						<i class="fa fa-whatsapp"></i>
 					</div>
-					<div class="scwidget-phone"><a href="https://web.whatsapp.com/send?phone=55'.preg_replace('/[^0-9]/', '', $instance['whatsapp']).'&text=Olá!%20Acessei%20o%20site%20e%20gostaria%20de%20mais%20informações%20sobre" target="_blank">'. esc_html($instance['whatsapp']) .'</a></div>
+					<div class="scwidget-phone"><a href="https://web.whatsapp.com/send?phone=55'. esc_attr(preg_replace('/[^0-9]/', '', $instance['whatsapp'])) .'&text=Olá!%20Acessei%20o%20site%20e%20gostaria%20de%20mais%20informações%20sobre" target="_blank">'.  esc_attr__($instance['whatsapp']) .'</a></div>
 				</div></div>
 				<div class="mob"><div class="scwidget scwidget-whats">
 					<div class="sciwdget-icon">
 						<i class="fa fa-whatsapp"></i>
 					</div>
-					<div class="scwidget-phone"><a href="https://api.whatsapp.com/send?phone=55'.preg_replace('/[^0-9]/', '', $instance['whatsapp']).'&text=Olá!%20Acessei%20o%20site%20e%20gostaria%20de%20mais%20informações%20sobre" target="_blank">'. esc_html($instance['whatsapp']) .'</a></div>
+					<div class="scwidget-phone"><a href="https://api.whatsapp.com/send?phone=55'. esc_attr(preg_replace('/[^0-9]/', '', $instance['whatsapp'])) .'&text=Olá!%20Acessei%20o%20site%20e%20gostaria%20de%20mais%20informações%20sobre" target="_blank">'.  esc_attr__($instance['whatsapp']) .'</a></div>
 				</div></div>';
 			}
 
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Simple_Contact_Widget' ) )
 					<div class="sciwdget-icon">
 						<i class="fa fa-envelope-o"></i>
 					</div>
-					<div class="scwidget-contact_email"><a href="mailto:'. esc_attr($instance['contact_email']) .'">'. esc_html($instance['contact_email']) .'</a></div>
+					<div class="scwidget-contact_email"><a href="mailto:'. esc_attr($instance['contact_email']) .'">'.  esc_attr__($instance['contact_email']) .'</a></div>
 				</div>';	
 			}	
 			
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Simple_Contact_Widget' ) )
 					<div class="sciwdget-icon">
 						<i class="fa fa-clock-o"></i>
 					</div>
-					<div class="scwidget-open_hours">'. esc_html($instance['open_hours']) .'</div>
+					<div class="scwidget-open_hours">'.  esc_attr__($instance['open_hours']) .'</div>
 				</div>';	
 			}	
 			
@@ -142,40 +142,40 @@ if ( ! class_exists( 'Simple_Contact_Widget' ) )
 
 		public function form( $instance ) {
 			$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Contact Information', 'scwidget' );
-			$address = ! empty( $instance['address'] ) ? $instance['address'] : __( '', 'scwidget' );
-			$addressLink = ! empty( $instance['addressLink'] ) ? $instance['addressLink'] : __( '', 'scwidget' );
-			$phone = ! empty( $instance['phone'] ) ? $instance['phone'] : __( '', 'scwidget' );
-			$whatsapp = ! empty( $instance['whatsapp'] ) ? $instance['whatsapp'] : __( '', 'scwidget' );
-			$contact_email = ! empty( $instance['contact_email'] ) ? $instance['contact_email'] : __( '', 'scwidget' );
-			$open_hours = ! empty( $instance['open_hours'] ) ? $instance['open_hours'] : __( '', 'scwidget' );
+			$address = ! empty( $instance['address'] ) ? $instance['address'] : __( 'Address', 'scwidget' );
+			$addressLink = ! empty( $instance['addressLink'] ) ? $instance['addressLink'] : __( 'Location URL', 'scwidget' );
+			$phone = ! empty( $instance['phone'] ) ? $instance['phone'] : __( 'Phone', 'scwidget' );
+			$whatsapp = ! empty( $instance['whatsapp'] ) ? $instance['whatsapp'] : __( 'WhatsApp', 'scwidget' );
+			$contact_email = ! empty( $instance['contact_email'] ) ? $instance['contact_email'] : __( 'Email', 'scwidget' );
+			$open_hours = ! empty( $instance['open_hours'] ) ? $instance['open_hours'] : __( 'Opening Hours', 'scwidget' );
 			?>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title: ', 'scwidget' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+			<p class="scwidget-row">
+				<label for="<?php echo esc_html($this->get_field_id( 'title' )); ?>"><?php esc_html_e( 'Title: ', 'scwidget' ); ?></label> 
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'title' )); ?>" name="<?php echo esc_html($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 			</p>
-			<p>
+			<p class="scwidget-row">
 				<label><?php esc_html_e( 'Address: ', 'scwidget' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'address' ); ?>" name="<?php echo $this->get_field_name( 'address' ); ?>" type="text" value="<?php echo esc_attr( $address ); ?>">
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'address' )); ?>" name="<?php echo esc_html($this->get_field_name( 'address' )); ?>" type="text" value="<?php echo esc_attr( $address ); ?>">
 			</p>
-			<p>
+			<p class="scwidget-row">
 				<label><?php esc_html_e( 'Google Maps Link: ', 'scwidget' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'addressLink' ); ?>" name="<?php echo $this->get_field_name( 'addressLink' ); ?>" type="text" value="<?php echo esc_attr( $addressLink ); ?>">
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'addressLink' )); ?>" name="<?php echo esc_html($this->get_field_name( 'addressLink' )); ?>" type="text" value="<?php echo esc_attr( $addressLink ); ?>">
 			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'phone' ); ?>"><?php esc_html_e( 'Telephone: ', 'scwidget'); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>" type="text" value="<?php echo esc_attr( $phone ); ?>">
+			<p class="scwidget-row">
+				<label for="<?php echo esc_html($this->get_field_id( 'phone' )); ?>"><?php esc_html_e( 'Telephone: ', 'scwidget'); ?></label> 
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'phone' )); ?>" name="<?php echo esc_html($this->get_field_name( 'phone' )); ?>" type="text" value="<?php echo esc_attr( $phone ); ?>">
 			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'whatsapp' ); ?>"><?php esc_html_e( 'WhatsApp: ', 'scwidget' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'whatsapp' ); ?>" name="<?php echo $this->get_field_name( 'whatsapp' ); ?>" type="text" value="<?php echo esc_attr( $whatsapp ); ?>">
+			<p class="scwidget-row">
+				<label for="<?php echo esc_html($this->get_field_id( 'phone' )); ?>"><?php esc_html_e( 'WhatsApp: ', 'scwidget' ); ?></label> 
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'phone' )); ?>" name="<?php echo esc_html($this->get_field_name( 'whatsapp' )); ?>" type="text" value="<?php echo esc_attr( $whatsapp ); ?>">
 			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'contact_email' ); ?>"><?php esc_html_e( 'Email: ', 'scwidget' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'contact_email' ); ?>" name="<?php echo $this->get_field_name( 'contact_email' ); ?>" type="email" value="<?php echo esc_attr( $contact_email ); ?>">
+			<p class="scwidget-row">
+				<label for="<?php echo esc_html($this->get_field_id( 'phone' )); ?>"><?php esc_html_e( 'Email: ', 'scwidget' ); ?></label> 
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'phone' )); ?>" name="<?php echo esc_html($this->get_field_name( 'contact_email' )); ?>" type="email" value="<?php echo esc_attr( $contact_email ); ?>">
 			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'open_hours' ); ?>"><?php esc_html_e( 'Opening hours:  ', 'scwidget' ); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id( 'open_hours' ); ?>" name="<?php echo $this->get_field_name( 'open_hours' ); ?>" type="text" value="<?php echo esc_attr( $open_hours ); ?>">
+			<p class="scwidget-row">
+				<label for="<?php echo esc_html($this->get_field_id( 'open_hours' )); ?>"><?php esc_html_e( 'Opening hours:  ', 'scwidget' ); ?></label> 
+				<input class="cswidget-wide" id="<?php echo esc_html($this->get_field_id( 'open_hours' )); ?>" name="<?php echo esc_html($this->get_field_name( 'open_hours' )); ?>" type="text" value="<?php echo esc_attr( $open_hours ); ?>">
 			</p>
 			<?php 
 		}
